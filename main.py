@@ -1,5 +1,6 @@
 import os
 import discord
+import pprint
 
 botClient = discord.Client()
 
@@ -21,6 +22,17 @@ async def on_message(message):
   if message.content.startswith('$flush'):
     for msg in userMessages:
       await message.channel.send(msg)
+  
+  channel = message.channel
+  channelHistory = []
+  async for content in channel.history().map(transform):
+    if content: channelHistory.append(content)
+  print(channelHistory, len(channelHistory))
 
+def transform(message):
+    return message.content
+
+
+  
     
 botClient.run(os.environ['TOKEN'])
