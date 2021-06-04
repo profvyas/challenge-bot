@@ -7,7 +7,7 @@ class ChallengeBot(discord.Client):
         self.userMessages = []
 
     def run(self):
-        self.run(os.environ['TOKEN'])
+        self.loop.run_until_complete(self.start(os.environ['TOKEN']))
 
     async def on_ready(self):
         print('we have logged in as {0.user}'.format(self))

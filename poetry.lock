@@ -83,6 +83,14 @@ version = "3.2"
 
 [[package]]
 category = "main"
+description = "StdLib: Standard Library for Microservices Python Bindings"
+name = "lib"
+optional = false
+python-versions = "*"
+version = "3.0.0"
+
+[[package]]
+category = "main"
 description = "multidict implementation"
 name = "multidict"
 optional = false
@@ -110,7 +118,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "e230b63752d6de7d164e567afa4ed94584fea1f5d25f9d490fbe71b2660df6e1"
+content-hash = "1f43593c20c29bb6bfef41c2a304fa6f71a281dc072d37bcdb915664e6281d75"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -176,6 +184,9 @@ discord = [
 idna = [
     {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},
     {file = "idna-3.2.tar.gz", hash = "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"},
+]
+lib = [
+    {file = "lib-3.0.0.tar.gz", hash = "sha256:0f9d40198aa516ce0d0328e086314996839b6d942d6cace2b7e7cbf9b3e3fb32"},
 ]
 multidict = [
     {file = "multidict-5.1.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:b7993704f1a4b204e71debe6095150d43b2ee6150fa4f44d6d966ec356a8d61f"},
