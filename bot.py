@@ -5,19 +5,26 @@ import asyncio
 
 from help import Help
 from constructs import Response
+from config import Config, ConfigDefaults
 import exceptions
 
 class ChallengeBot(discord.Client):
 
 
-    def __init__(self):
+    def __init__(self, config_file=None):
         super().__init__()
         self.help = Help(self)
-        # ToDo: add config, logging and permissions attr
+
+        if config_file is None:
+            config_file = ConfigDefaults.options_file
+        self.config = Config(config_file)
+        
+
+        # ToDo: add logging and permissions support
 
 
     def run(self):
-        self.loop.run_until_complete(self.start(os.environ['TOKEN']))
+        self.loop.run_until_complete(self.start('ODUwMjQzOTM4ODIzOTYyNjU0.YLm5Xw.Yy0XKVTODiPAQvmvRmV7YG-_GLU'))
 
     async def on_ready(self):
         # ToDo: add log instead of print
@@ -28,7 +35,7 @@ class ChallengeBot(discord.Client):
 
         # check message prefix
         message_content = message.content.strip()
-        if not message_content.startswith('bb!'):
+        if not message_content.startswith(self.config.command_prefix):
             return
 
         # Ignore commands from self
@@ -42,7 +49,7 @@ class ChallengeBot(discord.Client):
             return
 
         command, *args = message_content.split(' ')
-        command = command[len('bb!'):].lower().strip()
+        command = command[len(self.config.command_prefix):].lower().strip()
 
         # no args produces [''] above
         if args:
