@@ -24,7 +24,7 @@ class ChallengeBot(discord.Client):
 
 
     def run(self):
-        self.loop.run_until_complete(self.start('ODUwMjQzOTM4ODIzOTYyNjU0.YLm5Xw.Yy0XKVTODiPAQvmvRmV7YG-_GLU'))
+        self.loop.run_until_complete(self.start(os.environ['TOKEN']))
 
     async def on_ready(self):
         # ToDo: add log instead of print
